@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0f14" />
+    <meta name="description" content="UkaLead — рабочее пространство для поиска клиентов на разработку, маркетинг, ИИ и IT-обслуживание в Усть-Каменогорске." />
+    <title>UkaLead · рабочий стол лидов</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=15" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Основная навигация">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div>
+            <div class="brand-name">UkaLead</div>
+            <div class="brand-subtitle">sales OS · Öskemen</div>
+          </div>
+        </div>
+
+        <div class="workspace-switcher">
+          <div class="workspace-avatar">УК</div>
+          <div class="workspace-copy"><strong>Усть-Каменогорск</strong><span>локальный workspace</span></div>
+          <span class="chevron">⌄</span>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span><span>Рабочий стол</span><kbd>1</kbd></button>
+          <button class="nav-item" data-view="leads"><span class="nav-icon">◎</span><span>Все лиды</span><span class="nav-count" id="navLeadCount">12</span></button>
+          <button class="nav-item" data-view="pipeline"><span class="nav-icon">⌁</span><span>Воронка</span></button>
+          <button class="nav-item" data-view="sources"><span class="nav-icon">⌖</span><span>Источники</span></button>
+        </nav>
+
+        <div class="nav-section-label">Сигналы</div>
+        <nav class="nav-list compact">
+          <button class="nav-item" data-focus="service"><span class="signal-dot cyan"></span><span>IT-обслуживание</span><span class="nav-count muted" id="serviceCount">4</span></button>
+          <button class="nav-item" data-focus="dev"><span class="signal-dot violet"></span><span>Разработка</span><span class="nav-count muted" id="devCount">3</span></button>
+          <button class="nav-item" data-focus="marketing"><span class="signal-dot amber"></span><span>Маркетинг</span><span class="nav-count muted" id="marketingCount">3</span></button>
+          <button class="nav-item" data-focus="ai"><span class="signal-dot lime"></span><span>ИИ и контент</span><span class="nav-count muted" id="aiCount">2</span></button>
+          <button class="nav-item" data-focus="seo"><span class="signal-dot violet"></span><span>SEO для сайта</span><span class="nav-count muted" id="seoCount">0</span></button>
+          <button class="nav-item" data-focus="context"><span class="signal-dot amber"></span><span>Контекст Google / Яндекс</span><span class="nav-count muted" id="contextCount">0</span></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sync-card"><div class="sync-pulse"></div><div><strong>Локальный режим</strong><span>данные только на этом устройстве</span></div></div>
+          <button class="nav-item help-item" id="aboutBtn"><span class="nav-icon">?</span><span>Как работать</span></button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="viewTitle">Рабочий стол</strong></div>
+          <div class="topbar-actions">
+            <div class="last-sync"><span class="status-dot"></span> Обновлено <strong id="lastSync">сейчас</strong></div>
+            <button class="icon-button" title="Уведомления" aria-label="Уведомления">♢<span class="notification-dot"></span></button>
+            <button class="profile-button"><span class="profile-avatar">А</span><span class="profile-name">Алексей</span><span class="chevron">⌄</span></button>
+          </div>
+        </header>
+
+        <section class="content-wrap" id="overviewView">
+          <div class="page-intro">
+            <div><div class="eyebrow">СРЕДА, 16 СЕНТЯБРЯ 2026</div><h1>Доброе утро, Алексей <span class="wave">✦</span></h1><p>В городе найдено <strong id="introLeadCount">12</strong> компаний, которым уже можно предложить следующий шаг.</p></div>
+            <div class="intro-actions"><button class="button secondary" id="refreshBtn"><span>↻</span> Обновить сигналы</button><button class="button primary" id="addLeadBtn"><span>＋</span> Добавить лид</button></div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card accent-cyan"><div class="stat-label">Горячие сигналы <span class="mini-info">i</span></div><div class="stat-value" id="hotCount">5</div><div class="stat-meta positive">↑ 2 за последние 7 дней</div><div class="stat-spark cyan-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="stat-card accent-lime"><div class="stat-label">Можно написать сегодня <span class="mini-info">i</span></div><div class="stat-value" id="todayCount">7</div><div class="stat-meta">2 требуют ручной проверки</div><div class="stat-ring"><svg viewBox="0 0 52 52"><circle class="ring-track" cx="26" cy="26" r="21"></circle><circle class="ring-value" cx="26" cy="26" r="21"></circle></svg><span>68%</span></div></article>
+            <article class="stat-card accent-violet"><div class="stat-label">В работе <span class="mini-info">i</span></div><div class="stat-value" id="workCount">3</div><div class="stat-meta">1 встреча назначена</div><div class="stat-avatars"><span>НК</span><span>ИП</span><span>+1</span></div></article>
+            <article class="stat-card accent-amber"><div class="stat-label">Конверсия в ответ <span class="mini-info">i</span></div><div class="stat-value">24<span class="unit">%</span></div><div class="stat-meta positive">↑ 6 п.п. к прошлой неделе</div><div class="stat-bars"><i style="height:26%"></i><i style="height:42%"></i><i style="height:36%"></i><i style="height:58%"></i><i style="height:49%"></i><i style="height:78%"></i><i style="height:68%"></i></div></article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel signal-panel"><div class="panel-header"><div><div class="section-kicker">ПРИОРИТЕТ НА СЕГОДНЯ</div><h2>Лиды с понятным поводом</h2></div><button class="text-button" id="viewAllHot">Смотреть все <span>→</span></button></div><div class="signal-list" id="signalList"></div></section>
+            <section class="panel activity-panel"><div class="panel-header"><div><div class="section-kicker">СОСТОЯНИЕ ВОРОНКИ</div><h2>Следующий шаг</h2></div><button class="icon-button small" id="pipelineBtn" title="Открыть воронку">↗</button></div><div class="funnel-wrap"><div class="funnel-row"><span class="funnel-label">Найдено</span><div class="funnel-track"><div class="funnel-fill found" id="foundBar"></div></div><strong id="foundFunnel">12</strong></div><div class="funnel-row"><span class="funnel-label">Проверено</span><div class="funnel-track"><div class="funnel-fill checked" id="checkedBar"></div></div><strong id="checkedFunnel">8</strong></div><div class="funnel-row"><span class="funnel-label">Написать</span><div class="funnel-track"><div class="funnel-fill write" id="writeBar"></div></div><strong id="writeFunnel">7</strong></div><div class="funnel-row"><span class="funnel-label">В работе</span><div class="funnel-track"><div class="funnel-fill progress" id="progressBar"></div></div><strong id="progressFunnel">3</strong></div></div><div class="activity-footer"><div class="activity-note"><span class="note-icon">✦</span><p><strong>Рекомендация ИИ</strong><br /><span id="recommendation">Сначала свяжись с компаниями, где уже виден запрос на автоматизацию.</span></p></div></div></section>
+          </div>
+
+          <section class="panel table-panel"><div class="panel-header table-header"><div><div class="section-kicker">РАБОЧАЯ ОЧЕРЕДЬ</div><h2>Все лиды</h2></div><div class="table-actions"><div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск по компании или сигналу" /></div><button class="filter-button" id="filterBtn">Фильтры <span class="filter-count" id="filterCount">0</span><span>⌄</span></button></div></div><div class="active-filters" id="activeFilters"></div><div class="table-scroll"><table><thead><tr><th>Компания</th><th>Сигнал</th><th>Оценка</th><th>Следующий шаг</th><th>Статус</th><th></th></tr></thead><tbody id="leadTableBody"></tbody></table></div><div class="empty-state hidden" id="emptyState"><div class="empty-icon">⌕</div><strong>Ничего не найдено</strong><span>Попробуй изменить запрос или добавь новую компанию.</span></div></section>
+        </section>
+
+        <section class="content-wrap alternate-view hidden" id="leadsView"><div class="page-intro compact-intro"><div><div class="eyebrow">ПОЛНЫЙ СПИСОК</div><h1>Все лиды</h1><p>Отсортируй компании по услуге, оценке и готовности к контакту.</p></div><button class="button primary" id="addLeadBtnAlt">＋ Добавить лид</button></div><section class="panel table-panel standalone-table"><div class="panel-header table-header"><div class="view-tabs"><button class="view-tab active" data-list-mode="all">Все <span id="allTabCount">12</span></button><button class="view-tab" data-list-mode="ready">Можно писать <span id="readyTabCount">7</span></button><button class="view-tab" data-list-mode="hot">Горячие <span id="hotTabCount">5</span></button></div><div class="table-actions"><div class="search-box"><span>⌕</span><input id="searchInputAlt" type="search" placeholder="Поиск" /></div></div></div><div class="table-scroll"><table><thead><tr><th>Компания</th><th>Услуга</th><th>Доказательство</th><th>Оценка</th><th>Статус</th><th></th></tr></thead><tbody id="leadTableBodyAlt"></tbody></table></div></section></section>
+
+        <section class="content-wrap alternate-view hidden" id="pipelineView"><div class="page-intro compact-intro"><div><div class="eyebrow">ДВИЖЕНИЕ ЛИДОВ</div><h1>Воронка</h1><p>Каждый контакт получает понятный следующий шаг.</p></div><button class="button secondary" id="pipelineReset">Сбросить демо-статусы</button></div><div class="kanban" id="kanban"></div></section>
+
+        <section class="content-wrap alternate-view hidden" id="sourcesView"><div class="page-intro compact-intro"><div><div class="eyebrow">ОТКУДА ПРИХОДЯТ СИГНАЛЫ</div><h1>Источники</h1><p>Начни с разрешённых публичных источников и сохраняй подтверждение каждого сигнала.</p></div><a class="button secondary" href="https://2gis.kz/ustkam" target="_blank" rel="noreferrer">Открыть 2ГИС ↗</a></div><div class="source-grid"><article class="source-card featured"><div class="source-icon gis">2Г</div><div><h3>2ГИС · Усть-Каменогорск</h3><p>Поиск компаний по категории, адресу и наличию сайта. Добавляй ссылку на карточку как подтверждение источника.</p><span class="source-status"><i></i> подключено вручную</span></div><button class="source-arrow" data-open-source="2gis">→</button></article><article class="source-card maps-source"><div class="source-icon yandex">Я</div><div><h3>Яндекс Карты</h3><p>Дополнительный поиск компаний и публичных email, если в 2ГИС контакта нет.</p><button class="inline-action" data-open-map-source="yandex">Запустить поиск</button></div></article><article class="source-card maps-source"><div class="source-icon google">G</div><div><h3>Google Maps</h3><p>Дополнительный источник карточек, сайтов, телефонов и email при доступной публичной выдаче.</p><button class="inline-action" data-open-map-source="google">Запустить поиск</button></div></article><article class="source-card"><div class="source-icon jobs">↗</div><div><h3>Вакансии и публичные запросы</h3><p>Сигналы о найме администратора, маркетолога, контент-менеджера или разработчика.</p><span class="source-status neutral"><i></i> полуавтоматический режим</span></div><button class="source-arrow" data-open-source="jobs">→</button></article><article class="source-card"><div class="source-icon manual">＋</div><div><h3>Ручной импорт CSV</h3><p>Загрузи свой список компаний. UkaLead нормализует его, посчитает оценку и добавит в очередь.</p><button class="inline-action" id="importBtn">Импортировать файл</button></div></article></div><div class="source-note"><span>⌁</span><p><strong>Правило данных:</strong> в карточку попадает только опубликованный бизнес-контакт и ссылка на источник. Массовую рассылку без согласия не запускаем.</p></div></section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop hidden" id="leadModal"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle"><button class="modal-close" id="closeModal">×</button><div class="section-kicker">НОВЫЙ ЛИД</div><h2 id="leadModalTitle">Добавить компанию</h2><p class="modal-subtitle">Добавь факт и источник — остальное посчитается автоматически.</p><form id="leadForm"><label>Компания<input name="name" required placeholder="Например, «Новая мебель»" /></label><div class="form-row"><label>Категория<select name="service"><option value="service">IT-обслуживание</option><option value="dev">Разработка</option><option value="marketing">Маркетинг</option><option value="ai">ИИ и контент</option><option value="seo">SEO для сайта</option><option value="context">Контекст Google / Яндекс</option></select></label><label>Оценка сигнала<select name="signal"><option value="hot">Горячий запрос</option><option value="warm">Есть возможность</option><option value="cold">Нужно проверить</option></select></label></div><label>Что заметили<textarea name="evidence" required placeholder="Например: 3 филиала, запись только по телефону, нет формы заявки"></textarea></label><label>Ссылка на источник<input name="source" type="url" placeholder="https://2gis.kz/..." /></label><div class="form-actions"><button type="button" class="button secondary" id="cancelModal">Отмена</button><button class="button primary" type="submit">Добавить в очередь <span>→</span></button></div></form></div></div>
+
+    <div class="modal-backdrop hidden" id="detailModal"><div class="modal detail-modal" role="dialog" aria-modal="true"><button class="modal-close" id="closeDetail">×</button><div id="detailContent"></div></div></div>
+    <div class="modal-backdrop hidden" id="gisModal"><div class="modal gis-modal" role="dialog" aria-modal="true" aria-labelledby="gisModalTitle"><button class="modal-close" id="closeGisModal">×</button><div class="section-kicker">ЖИВОЙ ИМПОРТ</div><h2 id="gisModalTitle">Распарсить компании из 2ГИС</h2><p class="modal-subtitle">Вставь публичную ссылку на поиск карт. UkaLead прочитает HTML-страницу и подготовит реальные карточки без API-ключа.</p><form id="gisForm"><label>Ссылка на поиск карт<input name="url" type="url" value="https://2gis.kz/ustkam/search/Мебель%20на%20заказ" required /></label><div class="form-row"><label>Услуга<select name="service"><option value="service">IT-обслуживание</option><option value="dev">Разработка</option><option value="marketing" selected>Маркетинг</option><option value="ai">ИИ и контент</option><option value="seo">SEO для сайта</option><option value="context">Контекст Google / Яндекс</option></select></label><label>Сколько компаний<select name="limit"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select></label></div><div class="gis-help">Парсер обращается только к публичной странице выбранной карты, сохраняет ссылку-источник и берёт телефон, WhatsApp или email только если они опубликованы в карточке.</div><div class="form-actions"><button type="button" class="button secondary" id="cancelGis">Отмена</button><button class="button primary" type="submit" id="gisSearchBtn">Распарсить страницу <span>↗</span></button></div></form><div class="gis-status hidden" id="gisStatus"></div><div class="gis-results hidden" id="gisResults"><div class="gis-results-head"><div><strong>Результаты поиска</strong><span id="gisResultCount">0 найдено</span></div><button class="button primary" id="importGisBtn" type="button">Добавить выбранные <span>→</span></button></div><div class="gis-result-list" id="gisResultList"></div></div></div></div>
+    <div class="toast hidden" id="toast"><span class="toast-mark">✓</span><span id="toastText">Готово</span></div>
+    <input type="file" id="csvInput" accept=".csv,text/csv" hidden />
+    <script src="/app.js?v=14"></script>
+  </body>
+</html>
+
